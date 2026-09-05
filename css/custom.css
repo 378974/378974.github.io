@@ -177,3 +177,51 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== 全站循环视频背景 ===== */
+html,
+body {
+  background: transparent !important;
+}
+
+#blog-video-bg {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: -1000 !important;
+  display: block !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  filter: brightness(0.82) saturate(0.9);
+}
+
+/* 视频上方的浅色蒙层，保证文字清楚 */
+#web_bg {
+  z-index: -999 !important;
+  background: rgba(232, 243, 247, 0.28) !important;
+}
+
+[data-theme="dark"] #blog-video-bg {
+  filter: brightness(0.55) saturate(0.78);
+}
+
+[data-theme="dark"] #web_bg {
+  background: rgba(8, 17, 23, 0.38) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #blog-video-bg {
+    display: none !important;
+  }
+
+  #web_bg {
+    background: url("/img/banner.jpg") center center / cover no-repeat fixed !important;
+  }
+}
